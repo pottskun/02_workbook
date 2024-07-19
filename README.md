@@ -1,2 +1,2 @@
 # workbook
-JavaScriptの問題集
+02_JavaScriptの問題集
