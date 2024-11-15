@@ -63,8 +63,9 @@ html *:after {
 
 body {
   height: 100%;
-  color: #;
+  /* color: #; */
   background-color: #212121;
+  /* bodyに背景色をつけるのはどうなん？xxx */
 }
 
 img {
@@ -79,14 +80,6 @@ img {
 }
 
 
-
-
-
-
-
-
-
-
 /* Accessibility */
 .screen-reader-text {
   position: absolute;
@@ -94,4 +87,54 @@ img {
   clip: rect(1px,1px, 1px, 1px);
   width: 1px;
   height: 1px;
+}
+
+
+/* 色まとめ */
+:root {
+  --background-color: #F7DF1E;
+  --text-color: #4d4d4d;
+}
+
+/* header */
+.p-header {
+  position: relative;
+  height: 100vh;
+}
+
+.p-header__info {
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* hero */
+.p-hero {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  width: 100%;
+}
+
+/* navigation */
+.p-globalNav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.round {
+  border-radius: 20px;
+  padding: .8rem 3rem;
+}
+
+.size {
+  font-size: 6rem;
+  padding: 1.6rem;
+}
+
+.color {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

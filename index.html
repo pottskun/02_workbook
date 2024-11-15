@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
   <title>JavaScript問題集</title>
 </head>
+
 <body>
-  <section>
-    <h1>JavaScript<span>問題集</span></h1>
-  </section>
+  <header class="p-header">
+    <!-- <div class="l-container"> -->
+    <div class="p-header__info">
+      <h1 class="screen-reader-text">JavaScript問題集</h1>
+      <nav class="p-header__nav">
+        <!-- ↓idつける必要はある？ -->
+        <ul class="p-globalNav">
+          <li class="p-globalNav__item color round">初学者</li>
+          <li class="p-globalNav__item color round">中級者</li>
+          <li class="p-globalNav__item color round">上級者</li>
+          <li class="p-globalNav__item color round">保存した問題</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="p-hero">
+      <!-- <div class="p-hero__body"> -->
+        <h2 class="p-hero_title size color">JavaScript問題集</h2>
+      <!-- </div> -->
+    </section>
+    <section>
+      <h2 class="screen-reader-text">ここのタイトルどうしよう</h2>
+      <ul id="question-container">
+        
+      </ul>
+    </section>
+  </main>
 </body>
+
 </html>
+
+<!-- 使用ツールと目的
+HTML：ページの構造を作成
+CSS：ページのデザインとレイアウトを整える
+JavaScript：JSONファイルの読み込み、問題の表示や操作
+JSONファイル：問題データの保存と管理
+JSONを使った構成
+問題データの追加・管理：JSONファイルに問題を手動で追加
+問題の表示：JavaScriptでJSONファイルを読み込み、問題をWebページに表示
+レベル選択機能：JavaScriptで難易度別に問題をフィルタリングして表示
+問題の更新：必要に応じてJSONファイルを直接編集し、新しい問題を追加 -->
+
+<!-- 
+ステップバイステップの流れ
+JSONファイルを用意：先ほどのJSON形式で問題データを用意します。
+JavaScriptでJSONデータを読み込む：fetchメソッドを使ってJSONファイルを読み込みます。
+問題をDOMに追加する：取得した問題をHTMLに表示します。
+アコーディオン機能を実装：ヒントや答えをアコーディオンスタイルで表示するためのJavaScriptを追加します。 -->
