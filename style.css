@@ -97,24 +97,11 @@ img {
 }
 
 /* header */
-.p-header {
-  position: relative;
-  height: 100vh;
-}
-
-.p-header__info {
-  position: absolute;
-  top: 64%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* hero */
-.p-hero {
-  position: absolute;
-  top: 40%;
+.p-header__title {
   text-align: center;
-  width: 100%;
+  /* これを真ん中に持っていくには？xxx */
+  /* position: relative; */
+  /* transform:translate(-50%,-50%); */
 }
 
 /* navigation */
@@ -122,8 +109,11 @@ img {
   display: flex;
   justify-content: center;
   gap: 20px;
+  /* レスポンシブに対応させるxxx */
 }
 
+/* 装飾系 */
+/* モディファイアの部分をまとめるxxx */
 .round {
   border-radius: 20px;
   padding: .8rem 3rem;
@@ -137,4 +127,9 @@ img {
 .color {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+/* 一時的 */
+#js-question-list {
+  background-color: white;
 }
