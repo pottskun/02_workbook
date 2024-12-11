@@ -1,0 +1,32 @@
+<!-- 上級者 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <title>JavaScript問題集</title>
+</head>
+
+<body>
+  <header class="p-header">
+    <h1 class="p-header__title size color">JavaScript問題集</h1>
+    <nav class="p-header__nav">
+      <!-- ↓idつける必要はある？ -->
+      <ul class="p-globalNav">
+        <li class="p-globalNav__item color round">初学者</li>
+        <li class="p-globalNav__item color round">中級者</li>
+        <li class="p-globalNav__item color round">上級者</li>
+        <li class="p-globalNav__item color round">保存した問題</li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <ol id="js-question-list">
+      <!-- ここにdata.jsonが書かれていく -->
+    </ol>
+  </main>
+</body>
+</html>
