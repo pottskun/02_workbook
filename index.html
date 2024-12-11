@@ -11,35 +11,23 @@
 
 <body>
   <header class="p-header">
-    <!-- <div class="l-container"> -->
-    <div class="p-header__info">
-      <h1 class="screen-reader-text">JavaScript問題集</h1>
-      <nav class="p-header__nav">
-        <!-- ↓idつける必要はある？ -->
-        <ul class="p-globalNav">
-          <li class="p-globalNav__item color round">初学者</li>
-          <li class="p-globalNav__item color round">中級者</li>
-          <li class="p-globalNav__item color round">上級者</li>
-          <li class="p-globalNav__item color round">保存した問題</li>
-        </ul>
-      </nav>
-    </div>
+    <h1 class="p-header__title size color">JavaScript問題集</h1>
+    <nav class="p-header__nav">
+      <!-- ↓idつける必要はある？ -->
+      <ul class="p-globalNav">
+        <li class="p-globalNav__item color round">初学者</li>
+        <li class="p-globalNav__item color round">中級者</li>
+        <li class="p-globalNav__item color round">上級者</li>
+        <li class="p-globalNav__item color round">保存した問題</li>
+      </ul>
+    </nav>
   </header>
   <main>
-    <section class="p-hero">
-      <!-- <div class="p-hero__body"> -->
-        <h2 class="p-hero_title size color">JavaScript問題集</h2>
-      <!-- </div> -->
-    </section>
-    <section>
-      <h2 class="screen-reader-text">ここのタイトルどうしよう</h2>
-      <ul id="question-container">
-        
-      </ul>
-    </section>
+    <ol id="js-question-list">
+      <!-- ここにdata.jsonが書かれていく -->
+    </ol>
   </main>
 </body>
-
 </html>
 
 <!-- 使用ツールと目的
@@ -59,3 +47,5 @@ JSONファイルを用意：先ほどのJSON形式で問題データを用意し
 JavaScriptでJSONデータを読み込む：fetchメソッドを使ってJSONファイルを読み込みます。
 問題をDOMに追加する：取得した問題をHTMLに表示します。
 アコーディオン機能を実装：ヒントや答えをアコーディオンスタイルで表示するためのJavaScriptを追加します。 -->
+
+<!-- 背景に初めて書いたjsのコードを載せる？ -->
