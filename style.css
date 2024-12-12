@@ -97,11 +97,16 @@ img {
 }
 
 /* header */
-.p-header__title {
+.p-header  {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contain {
+  width: 100%;
   text-align: center;
-  /* これを真ん中に持っていくには？xxx */
-  /* position: relative; */
-  /* transform:translate(-50%,-50%); */
 }
 
 /* navigation */
@@ -109,6 +114,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 1.6rem;
   /* レスポンシブに対応させるxxx */
 }
 
