@@ -29,9 +29,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section {
   display: block;
 }
-body {
-  line-height: 1;
-}
 ol, ul {
   list-style: none;
 }
@@ -63,9 +60,10 @@ html *:after {
 
 body {
   height: 100%;
-  /* color: #; */
+  line-height: 1;
+  color: var(--text-color);
+  /* リンクの文字を指定カラーにしたいxxx */
   background-color: #212121;
-  /* bodyに背景色をつけるのはどうなん？xxx */
 }
 
 img {
@@ -118,6 +116,10 @@ img {
   /* レスポンシブに対応させるxxx */
 }
 
+.p-globalNav li a {
+  text-decoration: none; 
+}
+
 /* 装飾系 */
 /* モディファイアの部分をまとめるxxx */
 .round {
@@ -135,7 +137,47 @@ img {
   color: var(--text-color);
 }
 
-/* 一時的 */
-#js-question-list {
-  background-color: white;
+.question-item {
+  border: solid 2px white;
+  position: relative;
+  margin-top: 54px;
 }
+
+.question-container {
+  display: flex;
+  position: absolute;
+  top: -12px;
+  /* この書き方は横伸び対応じゃないから良くないxxx */
+  padding: 0 6px 0 6px;
+  background-color: #212121;
+}
+
+.bkm-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+  order: -1;
+}
+
+/* .button-hamburger:focus {
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 1);
+} */
+
+.question {
+  padding: 24px;
+}
+
+.txt-break {
+  display: block;
+  color: white;
+}
+
+.space {
+  padding-left: 4px;
+}
+
+.bkm-icon {
+  color: white;
+}
+

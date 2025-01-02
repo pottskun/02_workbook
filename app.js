@@ -16,17 +16,32 @@ fetch('data.json')
 
         const hoge = document.createElement("li");
         // hogeを追っていくとわからなくなる、どこに追加されてるんだxxx
-        hoge.classList.add('green');
+        const wrapper = document.createElement("div");
+        hoge.classList.add('question-item');
+        wrapper.classList.add('question-container');
+
+        // ブックマーク用のボタンを生成
+        const bkmBtn = document.createElement("button");
+        bkmBtn.classList.add('bkm-btn');
+        // bkmBtn.setAttribute('aria-label', 'Bookmark this question');xxx
+
+        // アイコンを生成
+        const bkmIcon = document.createElement("i");
+        bkmIcon.classList.add('bkm-icon', 'far', 'fa-thin', 'fa-bookmark', 'fa-xl');
+        // bkmIcon.setAttribute('aria-hidden', 'true');xxx
+        bkmBtn.appendChild(bkmIcon);
 
         const span1 = document.createElement("span");
         span1.textContent = `問題${problem.id}`;
-        span1.classList.add('txt-break');
+        span1.classList.add('txt-break', 'space');
 
         const span2 = document.createElement("span")
         span2.textContent = problem.question;
-        span1.classList.add('txt-break');
+        span2.classList.add('txt-break', 'question');
 
-        hoge.appendChild(span1);
+        hoge.appendChild(wrapper);
+        wrapper.appendChild(span1);
+        wrapper.appendChild(bkmBtn);
         hoge.appendChild(span2);
         // hogeがわからないから上に行も曖昧xxx
         container.appendChild(hoge);

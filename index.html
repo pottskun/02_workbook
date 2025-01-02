@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/db57b188a5.js" crossorigin="anonymous" defer></script>
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
   <title>JavaScript問題集</title>
@@ -16,7 +17,7 @@
       <nav class="p-header__nav">
         <!-- ↓idつける必要はある？ -->
         <ul class="p-globalNav">
-          <li class="p-globalNav__item color round"><a href="./index.html">中級者</a>初学者</li>
+          <li class="p-globalNav__item color round"><a href="./index.html">初学者</a></li>
           <li class="p-globalNav__item color round"><a href="./middle.html">中級者</a></li>
           <li class="p-globalNav__item color round"><a href="./middle.html">上級者</a></li>
           <li class="p-globalNav__item color round"><a href="./middle.html">保存した問題</a></li>
@@ -26,29 +27,7 @@
   </header>
   <main>
     <ol id="js-question-list">
-      <!-- ここにdata.jsonが書かれていく -->
     </ol>
   </main>
 </body>
-
 </html>
-
-<!-- 使用ツールと目的
-HTML：ページの構造を作成
-CSS：ページのデザインとレイアウトを整える
-JavaScript：JSONファイルの読み込み、問題の表示や操作
-JSONファイル：問題データの保存と管理
-JSONを使った構成
-問題データの追加・管理：JSONファイルに問題を手動で追加
-問題の表示：JavaScriptでJSONファイルを読み込み、問題をWebページに表示
-レベル選択機能：JavaScriptで難易度別に問題をフィルタリングして表示
-問題の更新：必要に応じてJSONファイルを直接編集し、新しい問題を追加 -->
-
-<!-- 
-ステップバイステップの流れ
-JSONファイルを用意：先ほどのJSON形式で問題データを用意します。
-JavaScriptでJSONデータを読み込む：fetchメソッドを使ってJSONファイルを読み込みます。
-問題をDOMに追加する：取得した問題をHTMLに表示します。
-アコーディオン機能を実装：ヒントや答えをアコーディオンスタイルで表示するためのJavaScriptを追加します。 -->
-
-<!-- 背景に初めて書いたjsのコードを載せる？ -->
