@@ -45,6 +45,18 @@ fetch('data.json')
         hoge.appendChild(span2);
         // hogeがわからないから上に行も曖昧xxx
         container.appendChild(hoge);
+
+        // クリックイベントで色を変更
+        bkmIcon.addEventListener('click',function() {
+        if (bkmIcon.classList.contains('far')) {
+          bkmIcon.classList.remove('far');
+          bkmIcon.classList.add('fa', 'bkmIcon__fill');
+        } else {
+          bkmIcon.classList.remove('fa', 'bkmIcon__fill');
+          bkmIcon.classList.add('far');
+        }
+});
+
       })
     } else {
       container.innerHTML = '<p>問題が読み込めませんでした。</p>';
