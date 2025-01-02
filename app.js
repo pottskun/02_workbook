@@ -1,20 +1,34 @@
 fetch('data.json')
   .then(response => response.json())  // JSONデータをオブジェクトに変換
-  .then(data => {
-    console.log(data);  // 取得したデータを確認
+  .then(data => { //jsonのデータはdataに入っている
 
-    const container = document.getElementById('question-container');
+    const container = document.getElementById('js-question-list');
+    // この子要素としてliを作って取得したデータを入れていく
 
     // ここではtrueであれば問題が表示されるxxx
-    if (data && data.problems && data.problems.length > 0) {
-      // problemsの中身を一つずつproblemに格納していく、このfunctionについてはいまいちわからず。
-      data.problems.forEach(function (problem) {
-        // 親要素の子要素としてliタグを生成
+    if (data && data.beginnerProblems && data.beginnerProblems.length > 0) {
+    // if (data && data.intermediateProblems && data.intermediateProblems.length > 0) {
+    // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
+    // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
+      // このif文はどういう意味？todo
+      data.beginnerProblems.forEach(function (problem) {
+        // ここはどういう意味？
+
         const hoge = document.createElement("li");
-        // これをテンプレートリテラルを使ってやるとしたら？xxx
-        // hogeにテキストを設定
-        hoge.textContent = problem.question;
-        // 親要素の子要素としてhogeを追加
+        // hogeを追っていくとわからなくなる、どこに追加されてるんだxxx
+        hoge.classList.add('green');
+
+        const span1 = document.createElement("span");
+        span1.textContent = `問題${problem.id}`;
+        span1.classList.add('txt-break');
+
+        const span2 = document.createElement("span")
+        span2.textContent = problem.question;
+        span1.classList.add('txt-break');
+
+        hoge.appendChild(span1);
+        hoge.appendChild(span2);
+        // hogeがわからないから上に行も曖昧xxx
         container.appendChild(hoge);
       })
     } else {
@@ -24,6 +38,3 @@ fetch('data.json')
   .catch(error => {
     console.error('エラーが発生しました:', error);
   });
-
-// テンプレートリテラルを使う場合、innerHTML にはセキュリティ上の注意点（XSS攻撃）があるので、注意が必要。
-
