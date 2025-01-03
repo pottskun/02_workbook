@@ -137,13 +137,22 @@ img {
   color: var(--text-color);
 }
 
-.question-item {
+.question-container {
   border: solid 2px white;
   position: relative;
   margin-top: 54px;
 }
 
-.question-container {
+.answer {
+  display: block;
+  margin-top: 1.2rem;
+  padding: 16px 0 16px 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 12px;
+}
+
+.question-wrapper {
   display: flex;
   position: absolute;
   top: -12px;

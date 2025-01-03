@@ -53,12 +53,13 @@ fetch('data.json')
         const span3 = document.createElement("span");
         span3.textContent = `答え`;
         // ここで答え、と表示
-        span3.classList.add('txt-break', 'space');
+        span3.classList.add('space', 'answer');
 
         const span4 = document.createElement("span")
         span4.textContent = problem.answer;
         // ここで答えを表示
-        span4.classList.add('txt-break', 'question');
+        span4.classList.add('realanswer');
+        // この答えはアコーディオンを開いた時にでてくるから最初は出さなくてもいい
 
         questionHoge.appendChild(span2);
         questionWrapper.appendChild(span1);
