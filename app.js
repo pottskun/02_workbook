@@ -3,22 +3,31 @@ fetch('data.json')
   .then(data => { //jsonのデータはdataに入っている
 
     const container = document.getElementById('js-question-list');
-    // この子要素としてliを作って取得したデータを入れていく
+    // HTMLにある'js-question-list'というIDの要素をcontainerという変数に格納する
+    // 最終的にはcontainerの中に子要素としてhogeが追加されるようになっている
+    // hogeには生成したliが入っている、クラスも追加している(question-item)
 
+    
     // ここではtrueであれば問題が表示されるxxx
     if (data && data.beginnerProblems && data.beginnerProblems.length > 0) {
-    // if (data && data.intermediateProblems && data.intermediateProblems.length > 0) {
-    // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
-    // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
+      // if (data && data.intermediateProblems && data.intermediateProblems.length > 0) {
+      // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
+      // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
       // このif文はどういう意味？todo
       data.beginnerProblems.forEach(function (problem) {
+      // data.beginnerProblems.forEach(function (answer) {
         // ここはどういう意味？
 
         const hoge = document.createElement("li");
-        // hogeを追っていくとわからなくなる、どこに追加されてるんだxxx
-        const wrapper = document.createElement("div");
+        const question = document.createElement("div");
+        const questionWrapper = document.createElement("div");
+        const questionHoge = document.createElement("div");
+        const answer = document.createElement("div");
         hoge.classList.add('question-item');
-        wrapper.classList.add('question-container');
+        question.classList.add('question-container');
+        questionWrapper.classList.add('question-wrapper');
+        questionHoge.classList.add('question-wrapper2');
+        answer.classList.add('question-answer');
 
         // ブックマーク用のボタンを生成
         const bkmBtn = document.createElement("button");
@@ -33,29 +42,45 @@ fetch('data.json')
 
         const span1 = document.createElement("span");
         span1.textContent = `問題${problem.id}`;
+        // ここで問題の番号を表示
         span1.classList.add('txt-break', 'space');
 
         const span2 = document.createElement("span")
         span2.textContent = problem.question;
+        // ここで問題文を表示
         span2.classList.add('txt-break', 'question');
 
-        hoge.appendChild(wrapper);
-        wrapper.appendChild(span1);
-        wrapper.appendChild(bkmBtn);
-        hoge.appendChild(span2);
-        // hogeがわからないから上に行も曖昧xxx
+        const span3 = document.createElement("span");
+        span3.textContent = `答え`;
+        // ここで答え、と表示
+        span3.classList.add('txt-break', 'space');
+
+        const span4 = document.createElement("span")
+        span4.textContent = problem.answer;
+        // ここで答えを表示
+        span4.classList.add('txt-break', 'question');
+
+        questionHoge.appendChild(span2);
+        questionWrapper.appendChild(span1);
+        questionWrapper.appendChild(bkmBtn);
+        question.appendChild(questionWrapper);
+        question.appendChild(questionHoge);
+        hoge.appendChild(question);
+        hoge.appendChild(answer);
+        answer.appendChild(span3);
+        answer.appendChild(span4);
         container.appendChild(hoge);
 
         // クリックイベントで色を変更
-        bkmIcon.addEventListener('click',function() {
-        if (bkmIcon.classList.contains('far')) {
-          bkmIcon.classList.remove('far');
-          bkmIcon.classList.add('fa', 'bkmIcon__fill');
-        } else {
-          bkmIcon.classList.remove('fa', 'bkmIcon__fill');
-          bkmIcon.classList.add('far');
-        }
-});
+        bkmIcon.addEventListener('click', function () {
+          if (bkmIcon.classList.contains('far')) {
+            bkmIcon.classList.remove('far');
+            bkmIcon.classList.add('fa', 'bkmIcon__fill');
+          } else {
+            bkmIcon.classList.remove('fa', 'bkmIcon__fill');
+            bkmIcon.classList.add('far');
+          }
+        });
 
       })
     } else {
