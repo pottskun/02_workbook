@@ -144,12 +144,52 @@ img {
 }
 
 .answer {
-  display: block;
+  /* display: block; */
+  width: 100%;
+  text-align: left;
   margin-top: 1.2rem;
   padding: 16px 0 16px 16px;
   background-color: var(--background-color);
   color: var(--text-color);
   border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+}
+
+.answer::before, .answer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  right: 24px;
+  width: 2px;
+  height: 16px;
+  background-color: var(--text-color);
+}
+
+.answer::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* .answer::after {
+
+} */
+
+.realanswer {
+  overflow: hidden;
+  display: block;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: .2s;
+}
+
+.open {
+  height: 50px;
+  border: 1px solid var(--background-color);
+  border-top: none;
 }
 
 .question-wrapper {
