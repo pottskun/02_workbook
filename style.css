@@ -144,7 +144,6 @@ img {
 }
 
 .answer {
-  /* display: block; */
   width: 100%;
   text-align: left;
   margin-top: 1.2rem;
@@ -166,15 +165,16 @@ img {
   width: 2px;
   height: 16px;
   background-color: var(--text-color);
+  transition-duration: .5s;
 }
 
 .answer::before {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-/* .answer::after {
-
-} */
+.answer:has(+ .open)::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+} 
 
 .realanswer {
   overflow: hidden;

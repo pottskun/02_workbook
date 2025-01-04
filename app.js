@@ -66,6 +66,16 @@ fetch('data.json')
             }
           });
 
+          answer.addEventListener('click', function() {
+             answer.classList.add('show')
+          });
+            // if (answer.classList.contains('show')) {
+            //     answer.classList.remove('show')
+            //   }  else {
+            //     answer.classList.add('show');
+            //   }
+            // });
+
         questionHoge.appendChild(span2);
         questionWrapper.appendChild(span1);
         questionWrapper.appendChild(bkmBtn);
