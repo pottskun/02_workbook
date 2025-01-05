@@ -107,6 +107,11 @@ img {
   text-align: center;
 }
 
+.p-header__title {
+  font-size: 6rem;
+  padding: 1.6rem;
+}
+
 /* navigation */
 .p-globalNav {
   display: flex;
@@ -116,46 +121,38 @@ img {
   /* レスポンシブに対応させるxxx */
 }
 
+.p-globalNav__item {
+  border-radius: 20px;
+  padding: .8rem 3rem;
+}
+
 .p-globalNav li a {
   text-decoration: none; 
 }
 
 /* 装飾系 */
-/* モディファイアの部分をまとめるxxx */
-.round {
-  border-radius: 20px;
-  padding: .8rem 3rem;
-}
-
-.size {
-  font-size: 6rem;
-  padding: 1.6rem;
-}
-
-.color {
+.theme-yellow {
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
-.question-container {
+.question {
   border: solid 2px white;
   position: relative;
   margin-top: 54px;
 }
 
-.answer {
+.answer-header {
   width: 100%;
   text-align: left;
   margin-top: 1.2rem;
   padding: 16px 0 16px 16px;
-  background-color: var(--background-color);
-  color: var(--text-color);
   border-radius: 12px;
   position: relative;
   cursor: pointer;
 }
 
-.answer::before, .answer::after {
+.answer-header::before, .answer-header::after {
   content: "";
   display: block;
   position: absolute;
@@ -168,15 +165,15 @@ img {
   transition-duration: .5s;
 }
 
-.answer::before {
+.answer-header::before {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.answer:has(+ .open)::after {
+.answer-header:has(+ .open)::after {
   transform: translate(-50%, -50%) rotate(90deg);
 } 
 
-.realanswer {
+.answer-main {
   overflow: hidden;
   display: block;
   height: 0;
@@ -184,6 +181,7 @@ img {
   justify-content: center;
   align-items: center;
   transition-duration: .2s;
+  color: white;
 }
 
 .open {
@@ -192,7 +190,7 @@ img {
   border-top: none;
 }
 
-.question-wrapper {
+.question-header {
   display: flex;
   position: absolute;
   top: -12px;
@@ -213,23 +211,17 @@ img {
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 1);
 } */
 
-.question {
+.question-text {
   padding: 24px;
-}
-
-.txt-break {
   display: block;
   color: white;
 }
 
-.space {
-  padding-left: 4px;
+.question-num {
+  display: block;
+  color: white;
 }
 
 .bkm-icon {
   color: white;
-}
-
-.bkmIcon__fill {
-  background-color: white;
 }

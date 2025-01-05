@@ -7,7 +7,6 @@ fetch('data.json')
     // 最終的にはcontainerの中に子要素としてhogeが追加されるようになっている
     // hogeには生成したliが入っている、クラスも追加している(question-item)
 
-    
     // ここではtrueであれば問題が表示されるxxx
     if (data && data.beginnerProblems && data.beginnerProblems.length > 0) {
       // if (data && data.intermediateProblems && data.intermediateProblems.length > 0) {
@@ -18,16 +17,29 @@ fetch('data.json')
       // data.beginnerProblems.forEach(function (answer) {
         // ここはどういう意味？
 
-        const hoge = document.createElement("li");
+        // 変数
+        // hoge→questionItem
+        // questionWrapper→questionHeader
+        // questionHoge→questionMain
+
+        // クラス名
+        // question-container→question
+        // question-answer→answer
+        // question-wrapper→question-header
+        // question-wrapper2→question-main
+        // question→question-text
+        // answer→answer-btn
+
+        const questionItem = document.createElement("li");
         const question = document.createElement("div");
-        const questionWrapper = document.createElement("div");
-        const questionHoge = document.createElement("div");
+        const questionHeader = document.createElement("div");
+        const questionMain = document.createElement("div");
         const answer = document.createElement("div");
-        hoge.classList.add('question-item');
-        question.classList.add('question-container');
-        questionWrapper.classList.add('question-wrapper');
-        questionHoge.classList.add('question-wrapper2');
-        answer.classList.add('question-answer');
+        questionItem.classList.add('question-item');
+        question.classList.add('question');
+        questionHeader.classList.add('question-header');
+        questionMain.classList.add('question-main');
+        answer.classList.add('answer');
 
         // ブックマーク用のボタンを生成
         const bkmBtn = document.createElement("button");
@@ -40,60 +52,50 @@ fetch('data.json')
         // bkmIcon.setAttribute('aria-hidden', 'true');xxx
         bkmBtn.appendChild(bkmIcon);
 
-        const span1 = document.createElement("span");
-        span1.textContent = `問題${problem.id}`;
+        const questionNum = document.createElement("span");
+        questionNum.textContent = `問題${problem.id}`;
         // ここで問題の番号を表示
-        span1.classList.add('txt-break', 'space');
+        questionNum.classList.add('question-num');
 
-        const span2 = document.createElement("span")
-        span2.textContent = problem.question;
+        const questionText = document.createElement("span")
+        questionText.textContent = problem.question;
         // ここで問題文を表示
-        span2.classList.add('txt-break', 'question');
+        questionText.classList.add('question-text');
 
-        const span3 = document.createElement("button");
-        span3.textContent = `答え`;
+        const answerHeader = document.createElement("button");
+        answerHeader.textContent = `答え`;
         // ここで答え、と表示
-        span3.classList.add('space', 'answer');
+        answerHeader.classList.add('answer-header', 'theme-yellow');
 
-        const span4 = document.createElement("span")
-        span4.textContent = problem.answer;
-        span4.classList.add('realanswer');
-        span3.addEventListener('click', function() {
-          if (span4.classList.contains('open')) {
-              span4.classList.remove('open')
+        const answerMain = document.createElement("span")
+        answerMain.textContent = problem.answer;
+        answerMain.classList.add('answer-main');
+        answerHeader.addEventListener('click', function() {
+          if (answerMain.classList.contains('open')) {
+              answerMain.classList.remove('open')
             }  else {
-              span4.classList.add('open');
+              answerMain.classList.add('open');
             }
           });
 
-          answer.addEventListener('click', function() {
-             answer.classList.add('show')
-          });
-            // if (answer.classList.contains('show')) {
-            //     answer.classList.remove('show')
-            //   }  else {
-            //     answer.classList.add('show');
-            //   }
-            // });
-
-        questionHoge.appendChild(span2);
-        questionWrapper.appendChild(span1);
-        questionWrapper.appendChild(bkmBtn);
-        question.appendChild(questionWrapper);
-        question.appendChild(questionHoge);
-        hoge.appendChild(question);
-        hoge.appendChild(answer);
-        answer.appendChild(span3);
-        answer.appendChild(span4);
-        container.appendChild(hoge);
+        questionMain.appendChild(questionText);
+        questionHeader.appendChild(questionNum);
+        questionHeader.appendChild(bkmBtn);
+        question.appendChild(questionHeader);
+        question.appendChild(questionMain);
+        questionItem.appendChild(question);
+        questionItem.appendChild(answer);
+        answer.appendChild(answerHeader);
+        answer.appendChild(answerMain);
+        container.appendChild(questionItem);
 
         // クリックイベントで色を変更
         bkmIcon.addEventListener('click', function () {
           if (bkmIcon.classList.contains('far')) {
             bkmIcon.classList.remove('far');
-            bkmIcon.classList.add('fa', 'bkmIcon__fill');
+            bkmIcon.classList.add('fa');
           } else {
-            bkmIcon.classList.remove('fa', 'bkmIcon__fill');
+            bkmIcon.classList.remove('fa');
             bkmIcon.classList.add('far');
           }
         });
