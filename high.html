@@ -1,10 +1,10 @@
-<!-- 上級者 -->
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/db57b188a5.js" crossorigin="anonymous" defer></script>
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
   <title>JavaScript問題集</title>
@@ -12,22 +12,21 @@
 
 <body>
   <header class="p-header">
-    <h1 class="p-header__title size color">JavaScript問題集</h1>
-    <nav class="p-header__nav">
-      <!-- ↓idつける必要はある？ -->
-      <ul class="p-globalNav">
-        <li class="p-globalNav__item color round"><a href="./index.html">中級者</a>初学者</li>
-        <li class="p-globalNav__item color round"><a href="./middle.html">中級者</a></li>
-        <li class="p-globalNav__item color round"><a href="./middle.html">上級者</a></li>
-        <li class="p-globalNav__item color round"><a href="./middle.html">保存した問題</a></li>
-      </ul>
-    </nav>
+    <div class="p-header__inner">
+      <h1 class="p-header__title theme-yellow">JavaScript問題集</h1>
+      <nav class="p-header__nav">
+        <ul class="p-globalNav">
+          <li class="p-globalNav__item theme-yellow"><a href="./index.html">初学者</a></li>
+          <li class="p-globalNav__item theme-yellow"><a href="./middle.html">中級者</a></li>
+          <li class="p-globalNav__item theme-yellow"><a href="./middle.html">上級者</a></li>
+          <li class="p-globalNav__item theme-yellow"><a href="./middle.html">保存した問題</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <main>
     <ol id="js-question-list">
-      <!-- ここにdata.jsonが書かれていく -->
     </ol>
   </main>
 </body>
-
 </html>
