@@ -13,23 +13,9 @@ fetch('data.json')
       // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
       // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
       // このif文はどういう意味？todo
+      let bookmarkedProblemIds = [];
+      // 上記をconstではなくletにして再代入可能にする？
       data.beginnerProblems.forEach(function (problem) {
-      // data.beginnerProblems.forEach(function (answer) {
-        // ここはどういう意味？
-
-        // 変数
-        // hoge→questionItem
-        // questionWrapper→questionHeader
-        // questionHoge→questionMain
-
-        // クラス名
-        // question-container→question
-        // question-answer→answer
-        // question-wrapper→question-header
-        // question-wrapper2→question-main
-        // question→question-text
-        // answer→answer-btn
-
         const questionItem = document.createElement("li");
         const question = document.createElement("div");
         const questionHeader = document.createElement("div");
@@ -70,13 +56,13 @@ fetch('data.json')
         const answerMain = document.createElement("span")
         answerMain.textContent = problem.answer;
         answerMain.classList.add('answer-main');
-        answerHeader.addEventListener('click', function() {
+        answerHeader.addEventListener('click', function () {
           if (answerMain.classList.contains('open')) {
-              answerMain.classList.remove('open')
-            }  else {
-              answerMain.classList.add('open');
-            }
-          });
+            answerMain.classList.remove('open')
+          } else {
+            answerMain.classList.add('open');
+          }
+        });
 
         questionMain.appendChild(questionText);
         questionHeader.appendChild(questionNum);
@@ -99,8 +85,17 @@ fetch('data.json')
             bkmIcon.classList.add('far');
           }
         });
-
+        // bkmbtnをクリックしたときにそのidをローカルストレージに保存する
+        bkmBtn.addEventListener('click', function () {
+          if (bookmarkedProblemIds.indexOf(problem.id) === -1) {
+            bookmarkedProblemIds.push(problem.id);
+            localStorage.setItem("bookmarkedProblemIds", JSON.stringify(bookmarkedProblemIds));
+          }
+          console.log(bookmarkedProblemIds);
+        });
       })
+      localStorage.setItem("questionID", JSON.stringify(data.beginnerProblems));
+      // problem.idの値を文字列に変換、"questionID"というキーでローカルストレージに保存する
     } else {
       container.innerHTML = '<p>問題が読み込めませんでした。</p>';
     }
