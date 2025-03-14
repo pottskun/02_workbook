@@ -13,8 +13,7 @@ fetch('data.json')
       // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
       // if (data && data.AdvancedProblems && data.AdvancedProblems.length > 0) {
       // このif文はどういう意味？todo
-      let bookmarkedProblemIds = [];
-      // 上記をconstではなくletにして再代入可能にする？
+      const bookmarkedStates = {};
       data.beginnerProblems.forEach(function (problem) {
         const questionItem = document.createElement("li");
         const question = document.createElement("div");
@@ -87,11 +86,9 @@ fetch('data.json')
         });
         // bkmbtnをクリックしたときにそのidをローカルストレージに保存する
         bkmBtn.addEventListener('click', function () {
-          if (bookmarkedProblemIds.indexOf(problem.id) === -1) {
-            bookmarkedProblemIds.push(problem.id);
-            localStorage.setItem("bookmarkedProblemIds", JSON.stringify(bookmarkedProblemIds));
-          }
-          console.log(bookmarkedProblemIds);
+          let bookmarkedStates = JSON.parse(localStorage.getItem("bookmarkedStates")) || {};
+          bookmarkedStates[problem.id] = true;
+          localStorage.setItem("bookmarkedStates", JSON.stringify(bookmarkedStates));
         });
       })
       localStorage.setItem("questionID", JSON.stringify(data.beginnerProblems));
@@ -103,3 +100,11 @@ fetch('data.json')
   .catch(error => {
     console.error('エラーが発生しました:', error);
   });
+
+
+// 1.クリックされた問題の id を取得する。
+// 2.bookmarkedStates オブジェクトで、問題の id に対応するブクマ状態を取得する。
+// 3.ブクマ状態を反転させる（true なら false、false なら true にする）。
+// 4.bookmarkedStates オブジェクトのブクマ状態を更新する。
+// 5.localStorage にブクマ情報を保存する。
+// 6.ブクマボタンの表示を更新する。
