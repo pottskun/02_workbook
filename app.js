@@ -81,7 +81,7 @@ fetch('data.json')
           }
         });
         bkmBtn.addEventListener('click', function () {
-          let bookmarkedStates = JSON.parse(localStorage.getItem("bookmarkedStates"))
+          let bookmarkedStates = JSON.parse(localStorage.getItem("bookmarkedStates")) || {};
           // bkmbtnをクリックしたときにそのidをローカルストレージに保存する
           if (bkmIcon.classList.contains('fa')) {
             bookmarkedStates[problem.id] = true;
