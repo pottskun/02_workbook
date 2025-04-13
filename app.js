@@ -10,11 +10,9 @@ fetch('data.json')
     const level = document.body.dataset.level;
     const problems = data[level + "Problems"];
     data[level + "Problems"].forEach(function (problem) {
-      // ここに問題を表示する処理を書く
 
     let bookmarkedStates = JSON.parse(localStorage.getItem("bookmarkedStates")) || {};
     // ローカルストレージに"bookmarkedStates"があればそれをオブジェクト形式で取得、なければ空のオブジェクト {} を代入
-    // data.beginnerProblems.forEach(function (problem) {
     const questionItem = document.createElement("li");
     const question = document.createElement("div");
     const questionHeader = document.createElement("div");
@@ -26,14 +24,14 @@ fetch('data.json')
     questionMain.classList.add('question-main');
     answer.classList.add('answer');
 
-    // ブックマーク用のボタンを生成
     const bkmBtn = document.createElement("button");
+    // ブックマーク用のボタンを生成
     bkmBtn.classList.add('bkm-btn');
     // bkmBtn.setAttribute('aria-label', 'Bookmark this question');xxx
 
     // アイコンを生成
     const bkmIcon = document.createElement("i");
-    // pタグとかでなくiタグ？？？xx
+    // pタグとかでなくiタグ？？？xxx
     bkmIcon.classList.add('bkm-icon', 'far', 'fa-thin', 'fa-bookmark', 'fa-xl');
     // bkmIcon.setAttribute('aria-hidden', 'true');xxx
     bkmBtn.appendChild(bkmIcon);
